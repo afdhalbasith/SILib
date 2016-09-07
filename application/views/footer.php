@@ -9,8 +9,8 @@
             <ul class="footer_list">
                 <li><a href="<?php echo site_url('dashboard');?>">Home</a></li>
                 <li><a href="<?php echo site_url('atur_buku');?>">Buku</a></li>
-                <li><a href="#">Info</a></li>
-                <li class="last"><a href="#">News</a></li>
+                <li><a href="<?php echo site_url('dashboard/info'); ?>">Info</a></li>
+                <li class="last"><a href="<?php echo site_url('dashboard/news'); ?>">News</a></li>
             </ul> 
             
             <div class="margin_bottom_10"></div>
@@ -32,6 +32,7 @@
 <!-- ===============================================-->
 
 <!-- SCRIPT FOR LOGIN/REGISTER -->
+
 
 <!-- ===============================================-->
 

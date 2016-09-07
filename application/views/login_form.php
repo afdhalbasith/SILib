@@ -36,10 +36,10 @@
 
 	<div id="templatemo_menu">
         <ul>
-            <li><a href="#" class="current">Home</a></li>
+            <li><a href="<?php echo site_url('dashboard');?>" class="current">Home</a></li>
             <li><a href="#">Kategori</a></li>
-            <li><a href="#">Info</a></li>
-            <li><a href="#">News</a></li>
+            <li><a href="<?php echo site_url('dashboard/info');?>">Info</a></li>
+            <li><a href="<?php echo site_url('dashboard/news');?>">News</a></li>
             <li><a id="modal_trigger" href="#modal">LOGIN / Register</a></li>
         </ul>    	
 
@@ -202,10 +202,10 @@
         <div id="templatemo_footer">
         
             <ul class="footer_list">
-                <li><a href="#">Home</a></li>
+                <li><a href="<?php echo site_url('dashboard');?>">Home</a></li>
                 <li><a href="#">Kategori</a></li>
-                <li><a href="#">Info</a></li>
-                <li class="last"><a href="#">News</a></li>
+                <li><a href="<?php echo site_url('dashboard/info');?>">Info</a></li>
+                <li class="last"><a href="<?php echo site_url('dashboard/news');?>">News</a></li>
             </ul> 
             
             <div class="margin_bottom_10"></div>

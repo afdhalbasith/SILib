@@ -5,11 +5,11 @@
 
     <div id="templatemo_menu">
         <ul>
-            <li><a href="#" class="current">Home</a></li>
+            <li><a href="<?php echo site_url('dashboard'); ?>" class="current">Home</a></li>
             <li><a href="#">Kategori</a></li>
             <li><a href="#">Peminjaman</a></li>
             <li><a href="#">Pengembalian</a></li>
-            <li><a href="#">My Account</a></li>
+            <li><a href="<?php echo site_url('dashboard/to_edit_myself/'.$user['PENGGUNA_ID']); ?>">My Account</a></li>
         </ul>       
 
 

@@ -124,4 +124,77 @@ class Dashboard extends CI_Controller{
 		redirect(site_url('dashboard'));
 	}
 
+	function info()
+	{
+		$ambil_akun = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = array(
+			'user'	=> $ambil_akun,
+			);
+
+		$this->load->view('header' , $data);
+		$this->load->view('info');
+		$this->load->view('footer');
+	}
+	function news()
+	{
+		$ambil_akun = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = array(
+			'user'	=> $ambil_akun,
+			);
+
+		$this->load->view('header' , $data);
+		$this->load->view('news');
+		$this->load->view('footer');
+	}
+
+	// EDIT / UPDATE   ============================================== USER PERSPECTIVE==================================================================================
+	function to_edit_myself($id_member)
+	{
+		$ambil_akun = $this->m_login->ambil_user($this->session->userdata('uname'));
+		$data = array(
+			'user'	=> $ambil_akun,
+			);
+
+		$data['membah'] = $this->m_crud->select_by_id($id_member)->row();
+
+		$this->load->view('header' , $data);
+		$this->load->view('crud2/form_edit_myself',$data);
+		$this->load->view('footer');
+	}
+
+	function edit_myself()
+	{
+		$data['PENGGUNA_NAMA'] = $this->input->post('nama');
+		$data['PENGGUNA_ALAMAT'] = $this->input->post('alamat');
+		$data['PENGGUNA_TELP'] = $this->input->post('telpun');
+		//$data['PENGGUNA_USERNAME'] = $this->input->post('username');
+		$data['PENGGUNA_EMAIL'] = $this->input->post('email');
+
+
+		$id_member = $this->input->post('id_member');
+		$this->m_crud->update_member($id_member , $data);
+
+		$passlawas = $this->input->post('password');
+		$passbaru = $this->input->post('passwordbaru');
+		$passbaru2 = $this->input->post('passwordbaru2');
+
+		if($passbaru=="" && $passbaru2=="")
+		{
+			$data['PENGGUNA_PASS'] = $passlawas;
+			redirect(site_url('dashboard'));
+		}elseif($passbaru=="" || $passbaru2=="" || $passbaru2!=$passbaru)
+		{
+			$data['PENGGUNA_PASS'] = $passlawas;
+			echo "<script>alert('Salah menginputkan password baru');document.location='" . base_url() . "dashboard/to_edit_myself/$id_member'</script>";	
+		}elseif($passbaru==$passbaru2)
+		{
+			$data['PENGGUNA_PASS'] = $passbaru;
+			echo "<script>alert('Perubahan Sukses');document.location='" . base_url() . "dashboard'</script>";
+		}
+
+		$this->m_crud->update_member($id_member , $data);
+		//redirect(site_url('dashboard'));
+	}
+
 }
+?>

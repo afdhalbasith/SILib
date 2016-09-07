@@ -8,8 +8,8 @@
             <li><a href="<?php echo site_url('dashboard');?>">Member</a></li>
             <li><a href="<?php echo site_url('atur_buku');?>" class="current">Buku</a></li>
             <li><a href="#">Laporan</a></li>
-            <li><a href="#">Info</a></li>
-            <li><a href="#">News</a></li>
+            <li><a href="<?php echo site_url('dashboard/info'); ?>">Info</a></li>
+            <li><a href="<?php echo site_url('dashboard/news'); ?>">News</a></li>
         </ul>    	
 
 

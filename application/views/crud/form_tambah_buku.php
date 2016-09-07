@@ -8,8 +8,8 @@
             <li><a href="<?php echo site_url('dashboard')?>">Member</a></li>
             <li><a href="<?php echo site_url('atur_buku')?>" class="current">Buku</a></li>
             <li><a href="#">Laporan</a></li>
-            <li><a href="#">Info</a></li>
-            <li><a href="#">News</a></li>
+            <li><a href="<?php echo site_url('dashboard/info'); ?>">Info</a></li>
+            <li><a href="<?php echo site_url('dashboard/news'); ?>">News</a></li>
         </ul>    	
 
 
@@ -27,7 +27,7 @@
         <div class="margin_bottom_30"></div>
 
         <div class="lol">
-		 	<form action="<?php echo site_url('atur_buku/tambah_buku');?>" method="POST">
+		 	<form action="<?php echo site_url('atur_buku/tambah_buku');?>" method="POST" onsubmit="return confirm('Do you really want to submit the form?');">
 	
 				 Judul : <br/><input type="text" name="judul" >
 				 <br/><br/>
