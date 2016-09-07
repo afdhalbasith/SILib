@@ -1,5 +1,5 @@
 
-// C program to sort using one swap
+// C program to sort using one swaps
 #include<iostream>
 #include<algorithm>
 using namespace std;
