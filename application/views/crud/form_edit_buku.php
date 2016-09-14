@@ -27,28 +27,65 @@
         <div class="margin_bottom_30"></div>
 
         <div class="lol">
-		 	<form action="<?php echo site_url('atur_buku/edit_buku');?>" method="POST" onsubmit="return confirm('Do you really want to submit the form?');">
-	
+		 	<!--<form action="<?php echo site_url('atur_buku/edit_buku');?>" method="POST" onsubmit="return confirm('Do you really want to submit the form?');">-->
+	        <?php echo form_open('atur_buku/edit_buku'); 
+            $this->form_validation->set_error_delimiters('<div style="color:red;">', '</div>')?>
 
 
 				 Judul : <br/><input type="text" name="judul" value="<?php echo $bukuh->BUKU_JUDUL;?>" >
-				 <br/><br/>
-				 Kategori : <br/><input type="text" name="kategori" value="<?php echo $bukuh->BUKU_KATE;?>" >
-				 <br/><br/>
+				 <br/><?php echo form_error('judul'); ?><br/>
+
+         <!--
+         <select class="form-control">
+            <?php 
+            //$data['groups'] = $this->delivery_model->getAllGroups();
+            foreach($groups as $row)
+            { 
+              //echo '<option value="'.$row->description.'">'.$row->description.'</option>';
+            }
+            ?>
+            </select>
+         -->
+
+				 Kategori : <br/>
+                 <select name="kategori" value="<?php echo $bukuh->BUKU_KATE;?>">
+                  <option value="pleaseSelect" <?php echo set_select('kategori', 'pleaseSelect', TRUE); ?>>------------  Pilih Kategori Buku  ------------</option>
+                  <option value="Agama" <?php echo set_select('kategori', 'Agama'); ?>>Agama</option>
+                  <option value="Bahasa dan Kamus" <?php echo set_select('kategori', 'Bahasa dan Kamus'); ?>>Bahasa dan Kamus</option>
+                  <option value="Biografi" <?php echo set_select('kategori', 'Biografi'); ?>>Biografi</option>
+                  <option value="Buku Anak" <?php echo set_select('kategori', 'Buku Anak'); ?>>Buku Anak</option>
+                  <option value="Buku Import" <?php echo set_select('kategori', 'Buku Import'); ?>>Buku Import</option>
+                  <option value="Buku Sekolah" <?php echo set_select('kategori', 'Buku Sekolah'); ?>>Buku Sekolah</option>
+                  <option value="Busana dan Kecantikan" <?php echo set_select('kategori', 'Busana dan Kecantikan'); ?>>Busana dan Kecantikan</option>
+                  <option value="Ekonomi dan Manajemen" <?php echo set_select('kategori', 'Ekonomi dan Manajemen'); ?>>Ekonomi dan Manajemen</option>
+                  <option value="Hobi dan Usaha" <?php echo set_select('kategori', 'Hobi dan Usaha'); ?>>Hobi dan Usaha</option>
+                  <option value="Kesehatan dan Lingkungan" <?php echo set_select('kategori', 'Kesehatan dan Lingkungan'); ?>>Kesehatan dan Lingkungan</option>
+                  <option value="Komputer dan Internet" <?php echo set_select('kategori', 'Komputer dan Internet'); ?>>Komputer dan Internet</option>
+                  <option value="Majalah" <?php echo set_select('kategori', 'Majalah'); ?>>Majalah</option>
+                  <option value="Masakan dan Makanan" <?php echo set_select('kategori', 'Masakan dan Makanan'); ?>>Masakan dan Makanan</option>
+                  <option value="Novel" <?php echo set_select('kategori', 'Novel'); ?>>Novel</option>
+                  <option value="Psikologi" <?php echo set_select('kategori', 'Psikologi'); ?>>Psikologi</option>
+                  <option value="Remaja" <?php echo set_select('kategori', 'Remaja'); ?>>Remaja</option>
+                  <option value="Sejarah dan Budaya" <?php echo set_select('kategori', 'Sejarah dan Budaya'); ?>>Sejarah dan Budaya</option>
+                  <option value="Teknik" <?php echo set_select('kategori', 'Teknik'); ?>>Teknik</option>
+                </select>
+                <br/><?php echo form_error('kategori') ?><br/>
+
 				 Pengarang : <br/><input type="text" name="pengarang" value="<?php echo $bukuh->BUKU_PENGARANG;?>" >
-				 <br/><br/>
+				 <br/><?php echo form_error('pengarang'); ?><br/>
 				 Tahun Terbit : <br/><input type="text" name="tahunterbit" value="<?php echo $bukuh->BUKU_TAHUNTERBIT;?>">
-				 <br/><br/>
-				 Sinopsis : <br/><input type="text" name="sinopsis" value="<?php echo $bukuh->BUKU_SINOPSIS;?>">
-				 <br/><br/>
+				 <br/><?php echo form_error('tahunterbit'); ?><br/>
+				 Sinopsis : <br/><textarea rows="3" name="sinopsis"><?php echo $bukuh->BUKU_SINOPSIS;?></textarea>
+				 <br/><?php echo form_error('sinopsis'); ?><br/>
 				 
 
-                 <select name="status">
-                    <option value="Available" selected="<?php echo $bukuh->BUKU_STATUS;?>">Available</option>
-                    <option value="UnAvailable">UnAvailable</option>
+                 Status : <br/>
+                 <select name="status" value="<?php echo $bukuh->BUKU_STATUS;?>">
+                    <option value="pleaseSelect" <?php echo set_select('status', 'pleaseSelect', TRUE); ?>>------------  Pilih Status Buku  ------------</option>
+                    <option value="Available" <?php echo set_select('status', 'Available'); ?>>Available</option>
+                    <option value="UnAvailable" <?php echo set_select('status', 'UnAvailable'); ?>>UnAvailable</option>
                  </select>
-
-                 <br/><br/>
+                 <br/><?php echo form_error('status') ?><br/>
 
                  <input type="hidden" name="id_buku" value="<?php echo $bukuh->BUKU_ID;?>" />
 

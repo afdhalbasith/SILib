@@ -15,7 +15,6 @@ class Login extends CI_Controller{
             $this->load->view('login_form');
         }else //jika session true maka di redirect ke halaman dashboard
         {
-            echo "<script>alert('MASUK SESSION !')</script>";
             redirect('dashboard');
         }
     }
@@ -84,7 +83,6 @@ class Login extends CI_Controller{
                     'lvl'      => $level, //set session hak akses
                 ));
                     
-                echo "<script>alert('masuk DASHBOARD VIA REGISTER')</script>";
                 redirect('dashboard','refresh');  //redirect ke halaman dashboard
 
             }

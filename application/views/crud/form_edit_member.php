@@ -27,22 +27,23 @@
         <div class="margin_bottom_30"></div>
 
         <div class="lol">
-		 	<form action="<?php echo site_url('dashboard/edit_member');?>" method="POST" onsubmit="return confirm('Do you really want to submit the form?');">
+		 	<!-- <form action="<?php echo site_url('dashboard/edit_member');?>" method="POST" onsubmit="return confirm('Do you really want to submit the form?');"> -->
 	
-
+            <?php echo form_open('dashboard/edit_member'); 
+            $this->form_validation->set_error_delimiters('<div style="color:red;">', '</div>')?>
 
 				 Nama : <br/><input type="text" name="nama" value="<?php echo $membah->PENGGUNA_NAMA;?>" >
-				 <br/><br/>
-				 Username : <br/><input type="text" name="username" value="<?php echo $membah->PENGGUNA_USERNAME;?>" >
+				 <br/><?php echo form_error('nama'); ?><br/>
+				 Username : <br/><input disabled type="text" name="username" value="<?php echo $membah->PENGGUNA_USERNAME;?>" >
 				 <br/><br/>
 				 Password : <br/><input type="text" name="password" value="<?php echo $membah->PENGGUNA_PASS;?>" >
-				 <br/><br/>
-				 Alamat : <br/><input type="text" name="alamat" value="<?php echo $membah->PENGGUNA_ALAMAT;?>">
-				 <br/><br/>
+				 <br/><?php echo form_error('password'); ?><br/>
+				 Alamat : <br/><textarea rows="3" name="alamat"><?php echo $membah->PENGGUNA_ALAMAT;?></textarea>
+				 <br/><?php echo form_error('alamat'); ?><br/>
 				 Telpon : <br/><input type="text" name="telpun" value="<?php echo $membah->PENGGUNA_TELP;?>">
-				 <br/><br/>
+				 <br/><?php echo form_error('telpun'); ?><br/>
 				 Email : <br/><input type="email" name="email" value="<?php echo $membah->PENGGUNA_EMAIL;?>" >
-				 <br/><br/>
+				 <br/><?php echo form_error('email'); ?><br/>
 
                  <select name="prive" value="<?php echo $membah->PENGGUNA_PRIV;?>">
                     <option value="Member" selected>Member</option>

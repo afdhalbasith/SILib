@@ -14,6 +14,7 @@
 table {
     border-collapse: collapse;
     width: 100%;
+    table-layout: fixed;
 }
 
 th, td {
@@ -28,7 +29,7 @@ th {
     color: white;
 }
 
-input[type=text],input[type=email],input[type=password], select {
+input[type=text],input[type=email],input[type=password],input[type=tel],textarea, select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -58,6 +59,19 @@ input[type=submit]:hover {
     padding: 20px;
     font-size : 140%;
 }
+
+ul.tsc_pagination { margin:4px 0; padding:0px; overflow:hidden; font:12px 'Tahoma'; list-style-type:none; }
+ul.tsc_pagination li { float:left; margin:0px; padding:0px; margin-left:5px; }
+
+ul.tsc_pagination li a { color:black; display:block; text-decoration:none; padding:7px 10px 7px 10px; }
+
+
+ul.tsc_paginationA li a { color:#FFFFFF; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
+
+ul.tsc_paginationA01 li a { color:#474747; border:solid 1px #B6B6B6; padding:6px 9px 6px 9px; background:#E6E6E6; background:-moz-linear-gradient(top, #FFFFFF 1px, #F3F3F3 1px, #E6E6E6); background:-webkit-gradient(linear, 0 0, 0 100%, color-stop(0.02, #FFFFFF), color-stop(0.02, #F3F3F3), color-stop(1, #E6E6E6)); }
+ul.tsc_paginationA01 li:hover a,
+ul.tsc_paginationA01 li.current a { background:#FFFFFF; }
+
 </style>
 
 </head>

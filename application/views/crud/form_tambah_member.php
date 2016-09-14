@@ -27,22 +27,22 @@
         <div class="margin_bottom_30"></div>
 
         <div class="lol">
-		 	<form action="<?php echo site_url('dashboard/tambah_member');?>" method="POST" onsubmit="return confirm('Do you really want to submit the form?');">
-	
 
+            <?php echo form_open('dashboard/tambah_member'); 
+            $this->form_validation->set_error_delimiters('<div style="color:red;">', '</div>')?>
 
-				 Nama : <br/><input type="text" name="nama" >
-				 <br/><br/>
-				 Username : <br/><input type="text" name="username" >
-				 <br/><br/>
-				 Password : <br/><input type="password" name="password" >
-				 <br/><br/>
-				 Alamat : <br/><input type="text" name="alamat" >
-				 <br/><br/>
-				 Telpon : <br/><input type="text" name="telpun" >
-				 <br/><br/>
-				 Email : <br/><input type="email" name="email" >
-				 <br/><br/>
+				 Nama : <br/><input type="text" name="nama" value="<?php echo set_value('nama'); ?>">
+				 <br/><?php echo form_error('nama'); ?><br/>
+				 Username : <br/><input type="text" name="username" value="<?php echo set_value('username'); ?>">
+				 <br/><?php echo form_error('username'); ?><br/>
+				 Password : <br/><input type="password" name="password" value="<?php echo set_value('password'); ?>">
+				 <br/><?php echo form_error('password'); ?><br/>
+				 Alamat : <br/><textarea rows="3" name="alamat"><?php echo set_value('alamat'); ?></textarea>
+				 <br/><?php echo form_error('alamat'); ?><br/>
+				 Telpon : <br/><input type="text" name="telpun" value="<?php echo set_value('telpun'); ?>">
+				 <br/><?php echo form_error('telpun'); ?><br/>
+				 Email : <br/><input type="email" name="email" value="<?php echo set_value('email'); ?>">
+				 <br/><?php echo form_error('email'); ?><br/>
 
 				 <input type="submit" value="Tambah" />
 			 </form>

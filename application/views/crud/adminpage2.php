@@ -26,10 +26,16 @@
         <div class="fontz" style="font-size: 30px;">Alter Buku</div>
         <div class="margin_bottom_50"></div>
 
-        <div style="text-align:left;font-weight:bold;"><a style="text-decoration: none;color:#009ACD;font-size:160%;" href="<?php echo site_url('atur_buku/to_tambah_buku');?>">TAMBAH BUKU</a></div>
-        <br><br/>
+        <div style="text-align:left;font-weight:bold;margin-left:1em;"><a style="text-decoration: none;color:#009ACD;font-size:120%;" href="<?php echo site_url('dashboard/to_tambah_member');?>">
+        <img src="<?php echo base_url(); ?>assets/images/add_book.png" height="50" width="50"><br/><P>TAMBAH</P><P>BUKU</P></a></div>
+        <br>
+        <div><?php echo $this->pagination->create_links(); ?></div>
+        <br/>
         
         <table border="1";>
+        <col style="width:3em"><col style="width:25%"><col style="width:20%"><col style="width:15%"><col style="width:5em"><col style="width:7em">
+
+
 		<tr>
 			<th>No</th>
 			<th>Judul</th>
@@ -45,7 +51,7 @@
             foreach($daftar_buku as $u){
             ?>
             <tr>
-                <td><?php echo $no++; ?></td>
+                <td><?php echo ($currentPage + $no++); ?></td>
                 <td><?php echo $u->BUKU_JUDUL; ?></td>
                 <td><?php echo $u->BUKU_KATE; ?></td>
                 <td><?php echo $u->BUKU_PENGARANG; ?></td>
@@ -54,8 +60,10 @@
                 <td>
                   
                   <div style="text-align:center;font-weight:bold;">
-                      <a style="text-decoration: none;color:green;" href="<?php echo site_url('atur_buku/to_edit_buku/'.$u->BUKU_ID);?>">Edit</a> |
-                      <a style="text-decoration: none;color:red;" href="<?php echo site_url('atur_buku/to_hapus_buku/'.$u->BUKU_ID);?>">Delete</a>
+                      <a style="text-decoration: none;color:green;" href="<?php echo site_url('atur_buku/to_edit_buku/'.$u->BUKU_ID);?>">
+                      <img src="<?php echo base_url(); ?>assets/images/edit.png" height="20" width="20"></a>  
+                      <a style="text-decoration: none;color:red;" href="<?php echo site_url('atur_buku/to_hapus_buku/'.$u->BUKU_ID);?>">
+                      <img src="<?php echo base_url(); ?>assets/images/delete.png" height="15" width="15"></a>
                       <?php //echo anchor('dashboard/to_edit_member/'.$u->PENGGUNA_ID,'Edit'); ?>
                       <?php //echo anchor('dashboard/to_hapus_member/'.$u->PENGGUNA_ID,'Hapus'); ?>
                   </div>

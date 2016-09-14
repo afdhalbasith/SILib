@@ -47,6 +47,21 @@ class M_crud extends CI_Model{
 		$this->db->where('PENGGUNA_ID',$id_pengguna);
 		$this->db->delete('pengguna');
 	}
+
+	function select_all_paging($limit=array())
+	{
+		$this->db->select('*');
+		$this->db->from('pengguna');
+		$this->db->where('PENGGUNA_PRIV = 2');
+		$this->db->order_by('PENGGUNA_ID');
+	 
+		if ($limit != NULL)
+			$this->db->limit($limit['perpage'], $limit['offset']);
+
+		return $this->db->get();
+	}
+
+
 }
 
 

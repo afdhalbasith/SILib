@@ -46,6 +46,18 @@ class Book_crud extends CI_Model{
 		$this->db->where('BUKU_ID',$id_buku);
 		$this->db->delete('buku');
 	}
+
+	function select_all_paging($limit=array())
+	{
+		$this->db->select('*');
+		$this->db->from('buku');
+		$this->db->order_by('BUKU_KATE','asc');
+	 
+		if ($limit != NULL)
+			$this->db->limit($limit['perpage'], $limit['offset']);
+
+		return $this->db->get();
+	}
 }
 
 
